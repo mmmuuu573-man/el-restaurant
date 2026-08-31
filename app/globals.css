@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 42 33% 96%;
+    --foreground: 30 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 12%;
+    --primary: 348 58% 28%;
+    --primary-foreground: 42 33% 96%;
+    --secondary: 42 33% 96%;
+    --secondary-foreground: 348 58% 28%;
+    --muted: 42 20% 90%;
+    --muted-foreground: 30 10% 40%;
+    --accent: 43 74% 56%;
+    --accent-foreground: 30 10% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 42 15% 85%;
+    --input: 42 15% 85%;
+    --ring: 348 58% 28%;
+    --radius: 0.75rem;
+
+    /* Custom palette */
+    --burgundy: 348 58% 28%;
+    --burgundy-light: 348 50% 40%;
+    --burgundy-dark: 348 65% 18%;
+    --cream: 42 33% 96%;
+    --cream-dark: 42 25% 88%;
+    --gold: 43 74% 56%;
+    --gold-light: 43 80% 68%;
+    --gold-dark: 38 70% 42%;
+    --charcoal: 30 10% 12%;
+    --charcoal-light: 30 8% 20%;
+    --olive: 82 30% 35%;
+    --olive-light: 82 35% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Tajawal', sans-serif;
+    direction: rtl;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Cairo', sans-serif;
+  }
+  .font-body {
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .text-burgundy {
+    color: hsl(var(--burgundy));
+  }
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+  .text-charcoal {
+    color: hsl(var(--charcoal));
+  }
+  .text-olive {
+    color: hsl(var(--olive));
+  }
+
+  .bg-burgundy {
+    background-color: hsl(var(--burgundy));
+  }
+  .bg-burgundy-dark {
+    background-color: hsl(var(--burgundy-dark));
+  }
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+  .bg-cream-dark {
+    background-color: hsl(var(--cream-dark));
+  }
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  .bg-charcoal {
+    background-color: hsl(var(--charcoal));
+  }
+
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+  .border-burgundy {
+    border-color: hsl(var(--burgundy));
+  }
+
+  /* Arabic geometric pattern background */
+  .pattern-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23b8860b' stroke-width='0.5' opacity='0.15'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Cpath d='M40 10 L70 40 L40 70 L10 40 Z'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z'/%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .pattern-bg-gold {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a017' stroke-width='0.5' opacity='0.1'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z'/%3E%3Cpath d='M30 10 L50 30 L30 50 L10 30 Z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Gold gradient text */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 80% 68%), hsl(38 70% 42%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-burgundy {
+    background: linear-gradient(135deg, hsl(348 50% 40%), hsl(348 65% 18%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(42 33% 96%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(348 58% 28%);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(348 65% 18%);
+  }
+
+  /* Entrance animations */
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.7s ease-out forwards;
+  }
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+  .animate-scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-600 { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes scaleIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Pulse glow for order button */
+  .glow-burgundy {
+    box-shadow: 0 0 20px rgba(139, 30, 45, 0.4);
+  }
+  .glow-gold {
+    box-shadow: 0 0 15px rgba(212, 160, 23, 0.4);
+  }
+}
